@@ -1,4 +1,6 @@
 # Multimodal
+## BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models (from Salesforce June 2023)
+<img width="1385" alt="Screenshot 2024-08-02 at 11 31 21 AM" src="https://github.com/user-attachments/assets/c2f895eb-5ee1-46ce-b356-99ead703767a">
 
 ## Learning Transferable Visual Models From Natural Language Supervision (CLIP by OpenAI Feb 2021)
 
