@@ -96,14 +96,8 @@ The primary objective of CLIP is to maximize the similarity between paired image
 2. **Contrastive Loss Function**:
    - The core of CLIP's training objective is a contrastive loss, specifically the **InfoNCE loss** (Noise Contrastive Estimation). This loss encourages the model to produce similar embeddings for matching image-text pairs and dissimilar embeddings for non-matching pairs.
    - For each image-text pair \((I, T)\), the objective is to increase the cosine similarity between their embeddings \((E_I, E_T)\) if they are paired, and decrease the similarity if they are not.
-
-3. **Softmax with Temperature Scaling**:
-   - CLIP computes the similarity between all image-text pairs in a batch. It uses a softmax function over these similarities to form a probability distribution, scaled by a temperature parameter \(\tau\). This scaling helps control the sharpness of the distribution.
-   - The loss for a single batch can be formulated as:
-     \[
-     \text{Loss} = -\frac{1}{N} \sum_{i=1}^{N} \left( \log \frac{\exp(\text{sim}(E_{I_i}, E_{T_i}) / \tau)}{\sum_{j=1}^{N} \exp(\text{sim}(E_{I_i}, E_{T_j}) / \tau)} + \log \frac{\exp(\text{sim}(E_{I_i}, E_{T_i}) / \tau)}{\sum_{j=1}^{N} \exp(\text{sim}(E_{I_j}, E_{T_i}) / \tau)} \right)
-     \]
-   - Here, \( \text{sim}(\cdot, \cdot) \) denotes the cosine similarity, and \( N \) is the number of image-text pairs in the batch.
+3. **Softmax with Temperature Scaling**
+<img width="705" alt="Screenshot 2024-08-02 at 11 20 07 AM" src="https://github.com/user-attachments/assets/30dbb78d-fd42-4858-afad-4c0489714514">
 
 4. **Bidirectional Contrastive Loss**:
    - CLIP's training loss is bidirectional, meaning it simultaneously computes two contrastive objectives: one where the image is used to predict the text and another where the text is used to predict the image. This ensures that both image-to-text and text-to-image associations are learned effectively.
